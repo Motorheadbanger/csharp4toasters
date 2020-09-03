@@ -1,0 +1,14 @@
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.pdb
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\obj\Debug\addressbook-web-tests.csprojAssemblyReference.cache
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\obj\Debug\addressbook-web-tests.csproj.CoreCompileInputs.cache
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\obj\Debug\addressbook-web-tests.csproj.CopyComplete
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\obj\Debug\addressbook-web-tests.dll
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\obj\Debug\addressbook-web-tests.pdb
