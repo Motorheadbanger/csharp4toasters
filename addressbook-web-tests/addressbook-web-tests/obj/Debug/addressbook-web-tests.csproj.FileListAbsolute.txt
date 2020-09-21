@@ -12,3 +12,9 @@ C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\obj\Debug\add
 C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\obj\Debug\addressbook-web-tests.csproj.CopyComplete
 C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\obj\Debug\addressbook-web-tests.dll
 C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\obj\Debug\addressbook-web-tests.pdb
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\nunit.framework.dll
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\WebDriver.dll
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\WebDriver.Support.dll
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\nunit.framework.xml
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\WebDriver.xml
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\WebDriver.Support.xml
