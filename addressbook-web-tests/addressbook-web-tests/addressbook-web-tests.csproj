@@ -59,13 +59,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GroupModificationTests.cs" />
+    <Compile Include="Tests\ContactModificationTests.cs" />
+    <Compile Include="Tests\GroupModificationTests.cs" />
     <Compile Include="Model\AccountData.cs" />
     <Compile Include="ApplicationManager\ApplicationManager.cs" />
     <Compile Include="Model\ContactData.cs" />
     <Compile Include="ApplicationManager\ContactsHelper.cs" />
     <Compile Include="Model\GroupData.cs" />
     <Compile Include="ApplicationManager\GroupHelper.cs" />
+    <Compile Include="Tests\ContactsRemovalTests.cs" />
     <Compile Include="Tests\GroupRemovalTests.cs" />
     <Compile Include="ApplicationManager\HelperBase.cs" />
     <Compile Include="ApplicationManager\LoginHelper.cs" />
