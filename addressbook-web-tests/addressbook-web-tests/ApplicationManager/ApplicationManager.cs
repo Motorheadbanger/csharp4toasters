@@ -16,11 +16,11 @@ namespace WebAddressBookTests
         public ApplicationManager()
         {
             Driver = new FirefoxDriver();
-            BaseUrl = "http://localhost";
-            LoginHelper = new LoginHelper(Driver);
-            NavigationHelper = new NavigationHelper(Driver, BaseUrl);
-            GroupHelper = new GroupHelper(Driver);
-            ContactsHelper = new ContactsHelper(Driver);
+            BaseUrl = "http://localhost/addressbook";
+            LoginHelper = new LoginHelper(this);
+            NavigationHelper = new NavigationHelper(this, BaseUrl);
+            GroupHelper = new GroupHelper(this);
+            ContactsHelper = new ContactsHelper(this);
         }
 
         public void Stop()

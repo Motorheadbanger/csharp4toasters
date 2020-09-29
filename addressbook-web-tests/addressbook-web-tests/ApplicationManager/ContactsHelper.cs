@@ -2,9 +2,9 @@
 
 namespace WebAddressBookTests
 {
-    public class ContactsHelper
+    public class ContactsHelper : HelperBase
     {
-        public ContactsHelper(IWebDriver driver) : base(driver)
+        public ContactsHelper(ApplicationManager applicationManager) : base(applicationManager)
         {
         }
 

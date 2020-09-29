@@ -2,11 +2,11 @@
 
 namespace WebAddressBookTests
 {
-    public class NavigationHelper
+    public class NavigationHelper : HelperBase
     {
         private string baseUrl;
 
-        public NavigationHelper(IWebDriver driver, string baseUrl) : base(driver)
+        public NavigationHelper(ApplicationManager applicationManager, string baseUrl) : base(applicationManager)
         {
             this.baseUrl = baseUrl;
         }

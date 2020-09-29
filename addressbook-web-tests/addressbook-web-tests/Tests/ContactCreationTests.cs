@@ -8,8 +8,6 @@ namespace WebAddressBookTests
         [Test]
         public void ContactCreationTest()
         {
-            applicationManager.NavigationHelper.GoToHomePage();
-            applicationManager.LoginHelper.Login(new AccountData("admin", "secret"));
             applicationManager.ContactsHelper.AddContact(new ContactData("Psycho", "Mantis"));
             applicationManager.NavigationHelper.ReturnToHomePage();
         }

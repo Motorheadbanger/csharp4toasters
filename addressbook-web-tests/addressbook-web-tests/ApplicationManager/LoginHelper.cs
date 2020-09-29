@@ -3,9 +3,9 @@ using OpenQA.Selenium;
 
 namespace WebAddressBookTests
 {
-    public class LoginHelper
+    public class LoginHelper : HelperBase
     {
-        public LoginHelper(IWebDriver driver) : base(driver)
+        public LoginHelper(ApplicationManager applicationManager) : base(applicationManager)
         {
         }
 
@@ -17,7 +17,7 @@ namespace WebAddressBookTests
             driver.FindElement(By.Name("pass")).Clear();
             driver.FindElement(By.Name("pass")).SendKeys(account.Password);
             driver.FindElement(By.Id("LoginForm")).Submit();
-            Thread.Sleep(100);
+            Thread.Sleep(200);
         }
     }
 }
