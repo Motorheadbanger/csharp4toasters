@@ -59,19 +59,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountData.cs" />
-    <Compile Include="Circle.cs" />
-    <Compile Include="ContactData.cs" />
-    <Compile Include="Figure.cs" />
-    <Compile Include="GroupData.cs" />
-    <Compile Include="Square.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Model\AccountData.cs" />
+    <Compile Include="ApplicationManager\ApplicationManager.cs" />
+    <Compile Include="Model\ContactData.cs" />
+    <Compile Include="ApplicationManager\ContactsHelper.cs" />
+    <Compile Include="Model\GroupData.cs" />
+    <Compile Include="ApplicationManager\GroupHelper.cs" />
+    <Compile Include="Tests\GroupRemovalTests.cs" />
+    <Compile Include="ApplicationManager\HelperBase.cs" />
+    <Compile Include="ApplicationManager\LoginHelper.cs" />
+    <Compile Include="ApplicationManager\NavigationHelper.cs" />
+    <Compile Include="Tests\TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GroupCreationTests.cs" />
-    <Compile Include="ContactCreationTests.cs" />
+    <Compile Include="Tests\GroupCreationTests.cs" />
+    <Compile Include="Tests\ContactCreationTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

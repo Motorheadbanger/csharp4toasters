@@ -2,7 +2,7 @@
 
 namespace WebAddressBookTests
 {
-    class ContactData
+    public class ContactData
     {
         public string FirstName { get; set; }
         public string MiddleName { get; set; } = "";
