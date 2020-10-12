@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using System;
+using System.Threading;
 
 namespace WebAddressBookTests
 {
@@ -13,7 +14,9 @@ namespace WebAddressBookTests
         public GroupHelper GroupHelper { get; }
         public ContactsHelper ContactsHelper { get; }
 
-        public ApplicationManager()
+        private static ThreadLocal<ApplicationManager> applicationManager = new ThreadLocal<ApplicationManager>();
+
+        private ApplicationManager()
         {
             Driver = new FirefoxDriver();
             BaseUrl = "http://localhost/addressbook";
@@ -23,7 +26,20 @@ namespace WebAddressBookTests
             ContactsHelper = new ContactsHelper(this);
         }
 
-        public void Stop()
+        public static ApplicationManager GetInstance()
+        {
+            if (!applicationManager.IsValueCreated)
+            {
+                ApplicationManager newInstance = new ApplicationManager();
+                newInstance.NavigationHelper.GoToHomePage();
+                applicationManager.Value = newInstance;
+
+            }
+
+            return applicationManager.Value;
+        }
+
+        ~ApplicationManager()
         {
             try
             {

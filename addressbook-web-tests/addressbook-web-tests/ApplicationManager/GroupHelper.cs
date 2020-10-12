@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
 
 namespace WebAddressBookTests
 {
@@ -51,13 +50,9 @@ namespace WebAddressBookTests
 
         public GroupHelper FillGroupForm(GroupData groupData)
         {
-            driver.FindElement(By.Name("group_name")).Click();
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(groupData.Name);
-            driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(groupData.Header);
-            driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys(groupData.Footer);
+            FillField(By.Name("group_name"), groupData.Name);
+            FillField(By.Name("group_header"), groupData.Header);
+            FillField(By.Name("group_footer"), groupData.Footer);
             return this;
         }
 
@@ -69,6 +64,9 @@ namespace WebAddressBookTests
 
         public GroupHelper SelectGroup(int index)
         {
+            if (!IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index + "]")))
+                Create(new GroupData("emergency group"));
+
             driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
             return this;
         }

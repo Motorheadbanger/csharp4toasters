@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
 
 namespace WebAddressBookTests
 {
@@ -14,11 +13,15 @@ namespace WebAddressBookTests
             driver.FindElement(By.LinkText("add new")).Click();
             FillContactInfo(contactData);
             driver.FindElement(By.XPath("(//input[@name='submit'])[2]")).Click();
+            applicationManager.NavigationHelper.GoToHomePage();
             return this;
         }
 
         public ContactsHelper ModifyContact(int index, ContactData contactData)
         {
+            if (!IsElementPresent(By.XPath("//img[@title='Edit'][" + index + "]")))
+                AddContact(new ContactData("emergency", "contact"));
+
             driver.FindElement(By.XPath("//img[@title='Edit'][" + index + "]")).Click();
             FillContactInfo(contactData);
             driver.FindElement(By.XPath("(//input[@name='update'])[2]")).Click();
@@ -27,6 +30,11 @@ namespace WebAddressBookTests
 
         public ContactsHelper RemoveContact(int index)
         {
+            if (!IsElementPresent(By.XPath("//input[contains(@title,'Select')][" + index + "]")))
+            {
+                AddContact(new ContactData("emergency", "contact"));
+            }
+
             driver.FindElement(By.XPath("//input[contains(@title,'Select')][" + index + "]")).Click();
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             driver.SwitchTo().Alert().Accept();
@@ -35,12 +43,8 @@ namespace WebAddressBookTests
 
         private void FillContactInfo(ContactData contactData)
         {
-            driver.FindElement(By.Name("firstname")).Click();
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(contactData.FirstName);
-            driver.FindElement(By.Name("lastname")).Click();
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(contactData.LastName);
+            FillField(By.Name("firstname"), contactData.FirstName);
+            FillField(By.Name("lastname"), contactData.LastName);
         }
     }
 }

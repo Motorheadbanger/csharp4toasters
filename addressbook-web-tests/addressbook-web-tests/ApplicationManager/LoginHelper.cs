@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using OpenQA.Selenium;
 
 namespace WebAddressBookTests
@@ -11,13 +12,36 @@ namespace WebAddressBookTests
 
         public void Login(AccountData account)
         {
-            driver.FindElement(By.Name("user")).Click();
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys(account.Username);
-            driver.FindElement(By.Name("pass")).Clear();
-            driver.FindElement(By.Name("pass")).SendKeys(account.Password);
+            if (IsLoggedIn())
+            {
+                if (IsLoggedIn(account))
+                    return;
+
+                Logout();
+            }
+            FillField(By.Name("user"), account.Username);
+            FillField(By.Name("pass"), account.Password);
             driver.FindElement(By.Id("LoginForm")).Submit();
             Thread.Sleep(200);
+        }
+
+        public bool IsLoggedIn()
+        {
+            return IsElementPresent(By.Name("logout"));
+        }
+
+        public bool IsLoggedIn(AccountData account)
+        {
+            Thread.Sleep(200);
+            if (!IsLoggedIn()) return false;
+
+            return driver.FindElement(By.Name("logout")).FindElement(By.TagName("b")).Text == "(" + account.Username + ")";
+        }
+
+        public void Logout()
+        {
+            if (IsLoggedIn())
+                driver.FindElement(By.LinkText("Logout")).Click();
         }
     }
 }
