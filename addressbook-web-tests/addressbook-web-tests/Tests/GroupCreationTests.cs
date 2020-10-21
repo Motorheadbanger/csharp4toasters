@@ -21,6 +21,8 @@ namespace WebAddressBookTests
 
             List<GroupData> modifiedGroupsList = applicationManager.GroupHelper.GetGroupsList();
 
+            Assert.AreEqual(initialGroupsList.Count + 1, applicationManager.GroupHelper.GetGroupsCount());
+
             initialGroupsList.Add(group);
             initialGroupsList.Sort();
             modifiedGroupsList.Sort();
@@ -42,6 +44,8 @@ namespace WebAddressBookTests
             applicationManager.GroupHelper.Create(group);
 
             List<GroupData> modifiedGroupsList = applicationManager.GroupHelper.GetGroupsList();
+
+            Assert.AreEqual(initialGroupsList.Count + 1, applicationManager.GroupHelper.GetGroupsCount());
 
             initialGroupsList.Add(group);
             initialGroupsList.Sort();
