@@ -14,7 +14,7 @@ namespace WebAddressBookTests
         public GroupHelper GroupHelper { get; }
         public ContactsHelper ContactsHelper { get; }
 
-        private static ThreadLocal<ApplicationManager> applicationManager = new ThreadLocal<ApplicationManager>();
+        private static readonly ThreadLocal<ApplicationManager> applicationManager = new ThreadLocal<ApplicationManager>();
 
         private ApplicationManager()
         {

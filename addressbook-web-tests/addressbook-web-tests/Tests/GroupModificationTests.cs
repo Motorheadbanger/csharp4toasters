@@ -9,9 +9,11 @@ namespace WebAddressBookTests
         [Test]
         public void GroupModificationTest()
         {
-            GroupData groupData = new GroupData("Group name 2");
-            groupData.Header = "Header 2";
-            groupData.Footer = "Footer 2";
+            GroupData groupData = new GroupData("Group name 2")
+            {
+                Header = "Header 2",
+                Footer = "Footer 2"
+            };
 
             List<GroupData> initialGroupsList = applicationManager.GroupHelper.GetGroupsList();
 

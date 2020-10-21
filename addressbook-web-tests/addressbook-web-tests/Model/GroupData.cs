@@ -24,7 +24,7 @@ namespace WebAddressBookTests
 
         public bool Equals(GroupData other)
         {
-            if (ReferenceEquals(other, null))
+            if (other is null)
                 return false;
 
             if (ReferenceEquals(this, other))

@@ -29,9 +29,12 @@ namespace WebAddressBookTests
 
             foreach (var element in elementsList)
             {
-                var contactData = new ContactData("", "");
-                contactData.FirstName = element.FindElement(By.XPath("./td[3]")).Text;
-                contactData.LastName = element.FindElement(By.XPath("./td[2]")).Text;
+                var contactData = new ContactData("", "")
+                {
+                    FirstName = element.FindElement(By.XPath("./td[3]")).Text,
+                    LastName = element.FindElement(By.XPath("./td[2]")).Text
+                };
+
                 contactsList.Add(contactData);
             }
 

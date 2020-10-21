@@ -11,6 +11,7 @@ namespace WebAddressBookTests
             applicationManager.LoginHelper.Logout();
 
             var accountData = new AccountData("admin", "secret");
+
             applicationManager.LoginHelper.Login(accountData);
 
             Assert.IsTrue(applicationManager.LoginHelper.IsLoggedIn(accountData));
@@ -22,6 +23,7 @@ namespace WebAddressBookTests
             applicationManager.LoginHelper.Logout();
 
             var accountData = new AccountData("admin", "123456");
+
             applicationManager.LoginHelper.Login(accountData);
 
             Assert.IsFalse(applicationManager.LoginHelper.IsLoggedIn(accountData));
