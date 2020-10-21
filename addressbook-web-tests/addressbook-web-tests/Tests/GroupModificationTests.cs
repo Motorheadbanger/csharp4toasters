@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace WebAddressBookTests
 {
@@ -12,7 +13,17 @@ namespace WebAddressBookTests
             groupData.Header = "Header 2";
             groupData.Footer = "Footer 2";
 
-            applicationManager.GroupHelper.Modify(1, groupData);
+            List<GroupData> initialGroupsList = applicationManager.GroupHelper.GetGroupsList();
+
+            applicationManager.GroupHelper.Modify(0, groupData);
+
+            List<GroupData> modifiedGroupsList = applicationManager.GroupHelper.GetGroupsList();
+
+            initialGroupsList[0].Name = groupData.Name;
+            initialGroupsList.Sort();
+            modifiedGroupsList.Sort();
+
+            Assert.AreEqual(initialGroupsList, modifiedGroupsList);
         }
     }
 }

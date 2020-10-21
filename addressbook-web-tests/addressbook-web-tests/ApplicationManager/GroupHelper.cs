@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
 
 namespace WebAddressBookTests
 {
@@ -7,6 +9,7 @@ namespace WebAddressBookTests
         public GroupHelper(ApplicationManager applicationManager) : base(applicationManager)
         {
         }
+
         public GroupHelper InitGroupCreation()
         {
             driver.FindElement(By.Name("new")).Click();
@@ -17,6 +20,22 @@ namespace WebAddressBookTests
         {
             driver.FindElement(By.LinkText("group page")).Click();
             return this;
+        }
+
+        public List<GroupData> GetGroupsList()
+        {
+            List<GroupData> groupsList = new List<GroupData>();
+
+            applicationManager.NavigationHelper.GoToGroupsPage();
+
+            ICollection<IWebElement> elementsList = driver.FindElements(By.CssSelector("span.group"));
+
+            foreach (var element in elementsList)
+            {
+                groupsList.Add(new GroupData(element.Text));
+            }
+
+            return groupsList;
         }
 
         public GroupHelper Modify(int index, GroupData groupData)
@@ -64,10 +83,10 @@ namespace WebAddressBookTests
 
         public GroupHelper SelectGroup(int index)
         {
-            if (!IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index + "]")))
+            if (!IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index  + 1 + "]")))
                 Create(new GroupData("emergency group"));
 
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + 1 + "]")).Click();
             return this;
         }
 

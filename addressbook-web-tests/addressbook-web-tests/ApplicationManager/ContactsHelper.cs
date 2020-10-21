@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
 
 namespace WebAddressBookTests
 {
@@ -17,12 +19,31 @@ namespace WebAddressBookTests
             return this;
         }
 
+        public List<ContactData> GetContactsList()
+        {
+            List<ContactData> contactsList = new List<ContactData>();
+
+            applicationManager.NavigationHelper.GoToHomePage();
+
+            ICollection<IWebElement> elementsList = driver.FindElements(By.XPath("//tr[contains(@name,'entry')]"));
+
+            foreach (var element in elementsList)
+            {
+                var contactData = new ContactData("", "");
+                contactData.FirstName = element.FindElement(By.XPath("./td[3]")).Text;
+                contactData.LastName = element.FindElement(By.XPath("./td[2]")).Text;
+                contactsList.Add(contactData);
+            }
+
+            return contactsList;
+        }
+
         public ContactsHelper ModifyContact(int index, ContactData contactData)
         {
-            if (!IsElementPresent(By.XPath("//img[@title='Edit'][" + index + "]")))
+            if (!IsElementPresent(By.XPath("//img[@title='Edit'][" + index + 1 + "]")))
                 AddContact(new ContactData("emergency", "contact"));
 
-            driver.FindElement(By.XPath("//img[@title='Edit'][" + index + "]")).Click();
+            driver.FindElement(By.XPath("//img[@title='Edit'][" + index + 1 + "]")).Click();
             FillContactInfo(contactData);
             driver.FindElement(By.XPath("(//input[@name='update'])[2]")).Click();
             return this;
@@ -30,12 +51,12 @@ namespace WebAddressBookTests
 
         public ContactsHelper RemoveContact(int index)
         {
-            if (!IsElementPresent(By.XPath("//input[contains(@title,'Select')][" + index + "]")))
+            if (!IsElementPresent(By.XPath("//input[contains(@title,'Select')][" + index + 1 + "]")))
             {
                 AddContact(new ContactData("emergency", "contact"));
             }
 
-            driver.FindElement(By.XPath("//input[contains(@title,'Select')][" + index + "]")).Click();
+            driver.FindElement(By.XPath("//input[contains(@title,'Select')][" + index + 1 + "]")).Click();
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             driver.SwitchTo().Alert().Accept();
             return this;
