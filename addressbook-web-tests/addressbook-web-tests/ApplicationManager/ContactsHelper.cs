@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace WebAddressBookTests
 {
@@ -10,6 +10,47 @@ namespace WebAddressBookTests
 
         public ContactsHelper(ApplicationManager applicationManager) : base(applicationManager)
         {
+        }
+
+        public ContactData GetContactContentFromTable(int index)
+        {
+            applicationManager.NavigationHelper.GoToHomePage();
+
+            IList<IWebElement> cells = driver.FindElements(By.Name("entry"))[index].FindElements(By.TagName("td"));
+
+            string lastName = cells[1].Text;
+            string firstName = cells[2].Text;
+            string address = cells[3].Text;
+            string allEmails = cells[4].Text;
+            string allPhones = cells[5].Text;
+
+            return new ContactData(firstName, lastName)
+            {
+                Address = address,
+                AllEmails = allEmails,
+                AllPhones = allPhones
+            };
+        }
+
+        public ContactData GetContactContentFromEditForm(int index)
+        {
+            applicationManager.NavigationHelper.GoToHomePage();
+            GoToContactEditForm(index);
+
+            string firstName = driver.FindElement(By.Name("firstname")).GetAttribute("value");
+            string lastName = driver.FindElement(By.Name("lastname")).GetAttribute("value");
+            string address = driver.FindElement(By.Name("address")).GetAttribute("value");
+            string homePhone = driver.FindElement(By.Name("home")).GetAttribute("value");
+            string mobilePhone = driver.FindElement(By.Name("mobile")).GetAttribute("value");
+            string workPhone = driver.FindElement(By.Name("work")).GetAttribute("value");
+
+            return new ContactData(firstName, lastName)
+            {
+                Address = address,
+                HomePhone = homePhone,
+                MobilePhone = mobilePhone,
+                WorkPhone = workPhone
+            };
         }
 
         public ContactsHelper AddContact(ContactData contactData)
@@ -53,7 +94,7 @@ namespace WebAddressBookTests
             if (!IsElementPresent(By.XPath("//img[@title='Edit'][" + index + 1 + "]")))
                 AddContact(new ContactData("emergency", "contact"));
 
-            driver.FindElement(By.XPath("//img[@title='Edit'][" + index + 1 + "]")).Click();
+            GoToContactEditForm(index);
             FillContactInfo(contactData);
             driver.FindElement(By.XPath("(//input[@name='update'])[2]")).Click();
             contactsCache = null;
@@ -74,6 +115,22 @@ namespace WebAddressBookTests
             contactsCache = null;
 
             return this;
+        }
+
+        public ContactsHelper GoToContactEditForm(int index)
+        {
+            driver.FindElement(By.XPath("//img[@title='Edit'][" + index + 1 + "]")).Click();
+
+            return this;
+        }
+
+        public int GetSearchResultsCount()
+        {
+            applicationManager.NavigationHelper.GoToHomePage();
+
+            string text = driver.FindElement(By.TagName("label")).Text;
+            Match match = new Regex(@"\d+").Match(text);
+            return int.Parse(match.Value);
         }
 
         private void FillContactInfo(ContactData contactData)

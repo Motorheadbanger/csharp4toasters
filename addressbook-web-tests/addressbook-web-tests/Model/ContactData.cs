@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace WebAddressBookTests
 {
     public class ContactData : IEquatable<ContactData>, IComparable<ContactData>
     {
+        private string allPhones;
+        private string allEmails;
+
         public string FirstName { get; set; }
         public string MiddleName { get; set; } = "";
         public string LastName { get; set; }
@@ -26,6 +30,35 @@ namespace WebAddressBookTests
         public string SecondaryAddress { get; set; } = "";
         public string Home { get; set; } = "";
         public string Notes { get; set; } = "";
+        public string AllPhones
+        {
+            get
+            {
+                if (allPhones != null)
+                    return allPhones;
+
+                return (PhoneFormat(HomePhone) + PhoneFormat(MobilePhone) + PhoneFormat(WorkPhone)).Trim();
+            }
+            set
+            {
+                allPhones = value;
+            }
+        }
+
+        public string AllEmails
+        {
+            get
+            {
+                if (allEmails != null)
+                    return allEmails;
+
+                return (EMailFormat(Email1) + EMailFormat(Email2) + EMailFormat(Email3)).Trim();
+            }
+            set
+            {
+                allEmails = value;
+            }
+        }
 
         public ContactData(string firstName, string lastName)
         {
@@ -58,6 +91,22 @@ namespace WebAddressBookTests
                 return FirstName.CompareTo(other.FirstName);
 
             else return LastName.CompareTo(other.LastName);
+        }
+
+        private string PhoneFormat(string phone)
+        {
+            if (phone == null || phone == "")
+                return "";
+
+            return Regex.Replace(phone, "[ \\-()]", "") + "\r\n";
+        }
+
+        private string EMailFormat(string email)
+        {
+            if (email == null || email == "")
+                return "";
+
+            return email + "\r\n";
         }
     }
 }

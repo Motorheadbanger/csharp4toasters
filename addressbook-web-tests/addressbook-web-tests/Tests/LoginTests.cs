@@ -6,7 +6,7 @@ namespace WebAddressBookTests
     public class LoginTests : TestBase
     {
         [Test]
-        public void LoginWithValidCredentials()
+        public void LoginWithValidCredentialsTest()
         {
             applicationManager.LoginHelper.Logout();
 
@@ -18,7 +18,7 @@ namespace WebAddressBookTests
         }
 
         [Test]
-        public void LoginWithInvalidCredentials()
+        public void LoginWithInvalidCredentialsTest()
         {
             applicationManager.LoginHelper.Logout();
 

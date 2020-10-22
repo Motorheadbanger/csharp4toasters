@@ -35,7 +35,14 @@ namespace WebAddressBookTests
             Thread.Sleep(200);
             if (!IsLoggedIn()) return false;
 
-            return driver.FindElement(By.Name("logout")).FindElement(By.TagName("b")).Text == "(" + account.Username + ")";
+            return GetLoggedUserName() == account.Username;
+        }
+
+        public string GetLoggedUserName()
+        {
+            string userNameText = driver.FindElement(By.Name("logout")).FindElement(By.TagName("b")).Text;
+
+            return userNameText.Substring(1, userNameText.Length - 2);
         }
 
         public void Logout()
