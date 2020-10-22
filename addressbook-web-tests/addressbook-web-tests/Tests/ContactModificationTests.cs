@@ -9,6 +9,8 @@ namespace WebAddressBookTests
         [Test]
         public void ContactModificationTest()
         {
+            applicationManager.ContactsHelper.EnsureContactExists();
+
             List<ContactData> initialContactList = applicationManager.ContactsHelper.GetContactsList();
 
             applicationManager.ContactsHelper.ModifyContact(0, new ContactData("Elake", "Laiset"));

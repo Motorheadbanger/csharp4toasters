@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -43,13 +44,15 @@ namespace WebAddressBookTests
             string homePhone = driver.FindElement(By.Name("home")).GetAttribute("value");
             string mobilePhone = driver.FindElement(By.Name("mobile")).GetAttribute("value");
             string workPhone = driver.FindElement(By.Name("work")).GetAttribute("value");
+            string home = driver.FindElement(By.Name("phone2")).GetAttribute("value");
 
             return new ContactData(firstName, lastName)
             {
                 Address = address,
                 HomePhone = homePhone,
                 MobilePhone = mobilePhone,
-                WorkPhone = workPhone
+                WorkPhone = workPhone,
+                Home = home
             };
         }
 
@@ -104,11 +107,6 @@ namespace WebAddressBookTests
 
         public ContactsHelper RemoveContact(int index)
         {
-            if (!IsElementPresent(By.XPath("//input[contains(@title,'Select')][" + index + 1 + "]")))
-            {
-                AddContact(new ContactData("emergency", "contact"));
-            }
-
             driver.FindElement(By.XPath("//input[contains(@title,'Select')][" + index + 1 + "]")).Click();
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             driver.SwitchTo().Alert().Accept();
@@ -137,6 +135,22 @@ namespace WebAddressBookTests
         {
             FillField(By.Name("firstname"), contactData.FirstName);
             FillField(By.Name("lastname"), contactData.LastName);
+        }
+
+        public int GetContactsCount()
+        {
+            applicationManager.NavigationHelper.GoToHomePage();
+            return driver.FindElements(By.XPath("//tr[contains(@name,'entry')]")).Count;
+        }
+
+        public void EnsureContactExists()
+        {
+            if (GetContactsCount() == 0)
+            {
+                AddContact(new ContactData("emergency", "contact"));
+            }
+
+            Assert.IsTrue(GetContactsCount() > 0);
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using OpenQA.Selenium;
-using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using System.Collections.Generic;
 
 namespace WebAddressBookTests
@@ -59,6 +59,7 @@ namespace WebAddressBookTests
 
         public int GetGroupsCount()
         {
+            applicationManager.NavigationHelper.GoToGroupsPage();
             return driver.FindElements(By.CssSelector("span.group")).Count;
         }
 
@@ -102,10 +103,8 @@ namespace WebAddressBookTests
 
         public GroupHelper SelectGroup(int index)
         {
-            if (!IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index  + 1 + "]")))
-                Create(new GroupData("emergency group"));
-
             driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + 1 + "]")).Click();
+
             return this;
         }
 
@@ -126,6 +125,16 @@ namespace WebAddressBookTests
             RemoveGroup();
             ReturnToGroupsPage();
             return this;
+        }
+
+        public void EnsureGroupExists()
+        {
+            if (GetGroupsCount() == 0)
+            {
+                Create(new GroupData("emergency group"));
+            }
+
+            Assert.IsTrue(GetGroupsCount() > 0);
         }
     }
 }

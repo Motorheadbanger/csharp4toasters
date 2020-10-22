@@ -9,6 +9,8 @@ namespace WebAddressBookTests
         [Test]
         public void GroupRemovalTest()
         {
+            applicationManager.GroupHelper.EnsureGroupExists();
+
             List<GroupData> initialGroupsList = applicationManager.GroupHelper.GetGroupsList();
             GroupData toBeRemoved = initialGroupsList[0];
 

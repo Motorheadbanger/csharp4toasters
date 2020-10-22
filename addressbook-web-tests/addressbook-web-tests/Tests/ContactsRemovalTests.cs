@@ -9,6 +9,8 @@ namespace WebAddressBookTests
         [Test]
         public void ContactRemovalTest()
         {
+            applicationManager.ContactsHelper.EnsureContactExists();
+
             List<ContactData> initialContactList = applicationManager.ContactsHelper.GetContactsList();
 
             applicationManager.ContactsHelper.RemoveContact(0);

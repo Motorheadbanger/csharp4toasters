@@ -9,6 +9,8 @@ namespace WebAddressBookTests
         [Test]
         public void GroupModificationTest()
         {
+            applicationManager.GroupHelper.EnsureGroupExists();
+
             GroupData groupData = new GroupData("Group name 2")
             {
                 Header = "Header 2",

@@ -37,7 +37,7 @@ namespace WebAddressBookTests
                 if (allPhones != null)
                     return allPhones;
 
-                return (PhoneFormat(HomePhone) + PhoneFormat(MobilePhone) + PhoneFormat(WorkPhone)).Trim();
+                return (PhoneFormat(HomePhone) + PhoneFormat(MobilePhone) + PhoneFormat(WorkPhone) + PhoneFormat(Home)).Trim();
             }
             set
             {
