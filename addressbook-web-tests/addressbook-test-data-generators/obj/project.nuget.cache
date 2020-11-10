@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ComNHmwqdV6mdRS0S+BCNMcaFNuJX8LmngILzQ22kV4MsS1BokFiS+CyyazDlHeFfnaGs76ojAqbmBdOQqtddg==",
+  "success": true,
+  "projectFilePath": "C:\\git\\csharp4toasters\\addressbook-web-tests\\addressbook-test-data-generators\\addressbook-test-data-generators.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Me\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
