@@ -122,7 +122,7 @@ namespace WebAddressBookTests
             return this;
         }
 
-        public ContactsHelper RemoveContact(int index)
+        public ContactsHelper DeleteContact(int index)
         {
             driver.FindElement(By.XPath("//input[contains(@title,'Select')][" + index + 1 + "]")).Click();
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
@@ -168,6 +168,27 @@ namespace WebAddressBookTests
             WaitForDbAmendment();
 
             return this;
+        }
+
+        public ContactsHelper RemoveContactFromGroup(ContactData contact, GroupData group)
+        {
+            applicationManager.NavigationHelper.GoToHomePage();
+            OpenGroupContactsList(group);
+            SelectContact(contact.Id);
+            CommitRemovingContact();
+            WaitForDbAmendment();
+
+            return this;
+        }
+
+        private void CommitRemovingContact()
+        {
+            driver.FindElement(By.Name("remove")).Click();
+        }
+
+        private void OpenGroupContactsList(GroupData group)
+        {
+            new SelectElement(driver.FindElement(By.Name("group"))).SelectByText(group.Name);
         }
 
         private void CommitAddingContactToGroup()
