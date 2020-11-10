@@ -108,5 +108,10 @@ namespace WebAddressBookTests
 
             return email + "\r\n";
         }
+
+        public override string ToString()
+        {
+            return "first name = " + FirstName + "\nlast name = " + LastName;
+        }
     }
 }

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll" total="5" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2020-11-10" time="14:21:03">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.9151" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="D:\Program Files (x86)\NUnit-2.6.4\bin" machine-name="DESKTOP-MCVHNML" user="Me" user-domain="DESKTOP-MCVHNML" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll" executed="True" result="Failure" success="False" time="10.126" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="WebAddressBookTests" executed="True" result="Failure" success="False" time="10.118" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="GroupCreationTests" executed="True" result="Failure" success="False" time="10.117" asserts="0">
+            <results>
+              <test-suite type="ParameterizedTest" name="GroupCreationTest" executed="True" result="Failure" success="False" time="10.111" asserts="0">
+                <results>
+                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = {ÂÍ¦.ìÀ´´?Tðz[¯&#xA;header = }Ç]ªýS£¼ð=rüb1_ÜçÕ&#xA;footer =  5ÉÈ]ß$ñ|)" executed="True" result="Success" success="True" time="6.468" asserts="2" />
+                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = RPºéÕ&#xA;header = sO£1·8ÜD±sNygG|ÊàUõÃ¸ÿÀEÊl¨GÙ'8.kæ12±»rs)þÙèºô}ÆâëìËTü×[A.6ëjÎ£'&#xA;footer = ¬·Eð5¸?2°£p¡­EåK¾ÜÌÞË|¢pFõ)" executed="True" result="Failure" success="False" time="0.846" asserts="1">
+                    <failure>
+                      <message><![CDATA[  Expected: 7
+  But was:  6
+]]></message>
+                      <stack-trace><![CDATA[at WebAddressBookTests.GroupCreationTests.GroupCreationTest(GroupData group) in C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\Tests\GroupCreationTests.cs:line 34
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = ¿PâKÆúh?d¹½1^Õ©½khËÏêgE&#xA;header = ¸7Îê§Éã?¾ÍI,zàw0nbvçdXx4`ÕlMê6Å¥ñÖÚ)@_ìéxÚøã¤ÐÑTnoNºªCnsR¥MöÜù¨¼1=9\ºñÇµ{µKÆ9VL&#xA;footer = º,í¹¿óápG@¿iÂRVñ&quot;Aï½æïÑa±S0¢NåÐÖ0K¢Ê¦?£7Ê¦õ2òù¥86\ùÓªÉí²é­_¤ñÙ)" executed="True" result="Success" success="True" time="0.892" asserts="2" />
+                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = A+oWÏ;Ï¶ãù¿n·Â8¨Ö#ÇØÛóU&#xA;header = ÖF´&lt;&amp;ØVàß$óÏOdRêÔ:ÙQÀé»cz¥EøNÝEhÞ]T©&lt;öþG)­¯#*&quot;,ÚêÙ&lt;=B¿õñ¹,qñ*ûs­¡^4ÉêJ&lt;Ìõ;ötòkK&#xA;footer = &lt;C¥J]ò/Ö7£³®|Ö/Qò&amp;R¸ÿz5ýüý¾Ð±.m·é÷;evIcè¾è×&lt;\ùÏ6a¦Ï¾Ý1Ø9äáýêrOäì)" executed="True" result="Success" success="True" time="0.926" asserts="2" />
+                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = Y×¿Ü¼ß5FáÖá{Ì&#xA;header = 2:Î:*\dêÔC¹òP¹À÷vúè^Þ_ú³W+&lt;¥lÒÒÓ?ÍS K\¦+{{S±È7é%hçIÛïÚ/Ù%áuÍfm@}å ICãÏ¬·Óâ ¥¹ôR&#xA;footer = ©öãd¿yiæØÄÞ.3TâÀá9D&lt;÷)" executed="True" result="Success" success="True" time="0.861" asserts="2" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
