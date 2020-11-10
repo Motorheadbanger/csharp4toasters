@@ -23,3 +23,5 @@ C:\git\csharp4toasters\addressbook-test-data-generator\obj\Debug\addressbook-tes
 C:\git\csharp4toasters\addressbook-test-data-generator\obj\Debug\addressbook-test-data-generators.csproj.CopyComplete
 C:\git\csharp4toasters\addressbook-test-data-generator\obj\Debug\addressbook-test-data-generator.exe
 C:\git\csharp4toasters\addressbook-test-data-generator\obj\Debug\addressbook-test-data-generator.pdb
+C:\git\csharp4toasters\addressbook-test-data-generator\bin\Debug\contacts.xml
+C:\git\csharp4toasters\addressbook-test-data-generator\bin\Debug\contacts.json

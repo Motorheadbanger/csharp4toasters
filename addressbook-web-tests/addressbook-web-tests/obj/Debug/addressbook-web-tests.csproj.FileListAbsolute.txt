@@ -24,3 +24,5 @@ C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\New
 C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\Newtonsoft.Json.xml
 C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\groups.json
 C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\obj\Debug\addressbook-web-tests.csproj.ResolveComReference.cache
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\contacts.xml
+C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\contacts.json
