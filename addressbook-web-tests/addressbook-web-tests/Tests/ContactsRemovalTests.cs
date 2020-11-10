@@ -4,20 +4,21 @@ using System.Collections.Generic;
 namespace WebAddressBookTests
 {
     [TestFixture]
-    public class ContactRemovalTests : AuthenticationTestBase
+    public class ContactRemovalTests : ContactTestBase
     {
         [Test]
         public void ContactRemovalTest()
         {
             applicationManager.ContactsHelper.EnsureContactExists();
 
-            List<ContactData> initialContactList = applicationManager.ContactsHelper.GetContactsList();
+            List<ContactData> initialContactList = ContactData.GetContactsListFromDb();
+            ContactData toBeRemoved = initialContactList[0];
 
-            applicationManager.ContactsHelper.RemoveContact(0);
+            applicationManager.ContactsHelper.RemoveContact(toBeRemoved);
 
-            List<ContactData> modifiedContactList = applicationManager.ContactsHelper.GetContactsList();
+            List<ContactData> modifiedContactList = ContactData.GetContactsListFromDb();
 
-            initialContactList.RemoveAt(0);
+            initialContactList.Remove(toBeRemoved);
 
             applicationManager.NavigationHelper.GoToHomePage();
 

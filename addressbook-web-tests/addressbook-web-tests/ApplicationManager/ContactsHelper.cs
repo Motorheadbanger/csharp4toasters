@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -61,6 +63,7 @@ namespace WebAddressBookTests
             driver.FindElement(By.LinkText("add new")).Click();
             FillContactInfo(contactData);
             driver.FindElement(By.XPath("(//input[@name='submit'])[2]")).Click();
+            WaitForDbAmendment();
             contactsCache = null;
             applicationManager.NavigationHelper.GoToHomePage();
 
@@ -100,6 +103,20 @@ namespace WebAddressBookTests
             GoToContactEditForm(index);
             FillContactInfo(contactData);
             driver.FindElement(By.XPath("(//input[@name='update'])[2]")).Click();
+            WaitForDbAmendment();
+            contactsCache = null;
+
+            return this;
+        }
+        public ContactsHelper ModifyContact(ContactData contact, ContactData contactData)
+        {
+            if (!IsElementPresent(By.XPath("//a[@href='edit.php?id=" + contact.Id + "']")))
+                AddContact(new ContactData("emergency", "contact"));
+
+            GoToContactEditForm(contact.Id);
+            FillContactInfo(contactData);
+            driver.FindElement(By.XPath("(//input[@name='update'])[2]")).Click();
+            WaitForDbAmendment();
             contactsCache = null;
 
             return this;
@@ -110,6 +127,18 @@ namespace WebAddressBookTests
             driver.FindElement(By.XPath("//input[contains(@title,'Select')][" + index + 1 + "]")).Click();
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             driver.SwitchTo().Alert().Accept();
+            WaitForDbAmendment();
+            contactsCache = null;
+
+            return this;
+        }
+
+        public ContactsHelper RemoveContact(ContactData contact)
+        {
+            driver.FindElement(By.Id(contact.Id)).Click();
+            driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            driver.SwitchTo().Alert().Accept();
+            WaitForDbAmendment();
             contactsCache = null;
 
             return this;
@@ -120,6 +149,45 @@ namespace WebAddressBookTests
             driver.FindElement(By.XPath("//img[@title='Edit'][" + index + 1 + "]")).Click();
 
             return this;
+        }
+
+        public ContactsHelper GoToContactEditForm(string contactId)
+        {
+            driver.FindElement(By.XPath("//a[@href='edit.php?id=" + contactId + "']")).Click();
+
+            return this;
+        }
+
+        public ContactsHelper AddContactToGroup(ContactData contact, GroupData group)
+        {
+            applicationManager.NavigationHelper.GoToHomePage();
+            ClearGroupFilter();
+            SelectContact(contact.Id);
+            SelectGroup(group.Name);
+            CommitAddingContactToGroup();
+            WaitForDbAmendment();
+
+            return this;
+        }
+
+        private void CommitAddingContactToGroup()
+        {
+            driver.FindElement(By.Name("add")).Click();
+        }
+
+        private void SelectGroup(string name)
+        {
+            new SelectElement(driver.FindElement(By.Name("to_group"))).SelectByText(name);
+        }
+
+        private void SelectContact(string id)
+        {
+            driver.FindElement(By.Id(id)).Click();
+        }
+
+        private void ClearGroupFilter()
+        {
+            new SelectElement(driver.FindElement(By.Name("group"))).SelectByText("[all]");
         }
 
         public int GetSearchResultsCount()
@@ -151,6 +219,11 @@ namespace WebAddressBookTests
             }
 
             Assert.IsTrue(GetContactsCount() > 0);
+        }
+
+        private void WaitForDbAmendment()
+        {
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(d => d.FindElements(By.CssSelector("div.msgbox")).Count > 0);
         }
     }
 }

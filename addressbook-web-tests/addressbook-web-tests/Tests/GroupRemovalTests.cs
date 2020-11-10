@@ -4,19 +4,19 @@ using System.Collections.Generic;
 namespace WebAddressBookTests
 {
     [TestFixture]
-    public class GroupRemovalTests : AuthenticationTestBase
+    public class GroupRemovalTests : GroupTestBase
     {
         [Test]
         public void GroupRemovalTest()
         {
             applicationManager.GroupHelper.EnsureGroupExists();
 
-            List<GroupData> initialGroupsList = applicationManager.GroupHelper.GetGroupsList();
+            List<GroupData> initialGroupsList = GroupData.GetGroupsListFromDb();
             GroupData toBeRemoved = initialGroupsList[0];
 
-            applicationManager.GroupHelper.Remove(0);
+            applicationManager.GroupHelper.Remove(toBeRemoved);
 
-            List<GroupData> modifiedGroupsList = applicationManager.GroupHelper.GetGroupsList();
+            List<GroupData> modifiedGroupsList = GroupData.GetGroupsListFromDb();
 
             Assert.AreEqual(initialGroupsList.Count - 1, applicationManager.GroupHelper.GetGroupsCount());
             

@@ -57,6 +57,17 @@ namespace WebAddressBookTests
             return this;
         }
 
+        public GroupHelper Modify(GroupData group, GroupData groupData)
+        {
+            applicationManager.NavigationHelper.GoToGroupsPage();
+            SelectGroup(group.Id);
+            InitGroupModification();
+            FillGroupForm(groupData);
+            SubmitGroupModification();
+            ReturnToGroupsPage();
+            return this;
+        }
+
         public int GetGroupsCount()
         {
             applicationManager.NavigationHelper.GoToGroupsPage();
@@ -108,6 +119,13 @@ namespace WebAddressBookTests
             return this;
         }
 
+        public GroupHelper SelectGroup(string id)
+        {
+            driver.FindElement(By.XPath("(//input[@name='selected[]' and @value='" + id + "'])")).Click();
+
+            return this;
+        }
+
         public GroupHelper Create(GroupData group)
         {
             applicationManager.NavigationHelper.GoToGroupsPage();
@@ -122,6 +140,15 @@ namespace WebAddressBookTests
         {
             applicationManager.NavigationHelper.GoToGroupsPage();
             SelectGroup(index);
+            RemoveGroup();
+            ReturnToGroupsPage();
+            return this;
+        }
+
+        public GroupHelper Remove(GroupData group)
+        {
+            applicationManager.NavigationHelper.GoToGroupsPage();
+            SelectGroup(group.Id);
             RemoveGroup();
             ReturnToGroupsPage();
             return this;

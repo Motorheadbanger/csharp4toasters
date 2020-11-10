@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1022]C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll</TopNode>
-  <SelectedNode>[0-1014]WebAddressBookTests.GroupCreationTests.GroupCreationTest</SelectedNode>
+  <TopNode>[0-1024]C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll</TopNode>
+  <SelectedNode>[0-1025]WebAddressBookTests</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1022]C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll" Expanded="true" />
-    <Node UniqueName="[0-1023]WebAddressBookTests" Expanded="true" />
-    <Node UniqueName="[0-1000]WebAddressBookTests.ContactContentTests" Expanded="true" />
+    <Node UniqueName="[0-1024]C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll" Expanded="true" />
+    <Node UniqueName="[0-1025]WebAddressBookTests" Expanded="true" />
+    <Node UniqueName="[0-1000]WebAddressBookTests.AddingContactToGroupTests" Expanded="true" />
+    <Node UniqueName="[0-1002]WebAddressBookTests.ContactContentTests" Expanded="true" />
     <Node UniqueName="[0-1020]WebAddressBookTests.ContactCreationTests" Expanded="true" />
-    <Node UniqueName="[0-1002]WebAddressBookTests.ContactModificationTests" Expanded="true" />
-    <Node UniqueName="[0-1006]WebAddressBookTests.ContactRemovalTests" Expanded="true" />
-    <Node UniqueName="[0-1013]WebAddressBookTests.GroupCreationTests" Expanded="true" />
-    <Node UniqueName="[0-1014]WebAddressBookTests.GroupCreationTests.GroupCreationTest" Expanded="true" />
-    <Node UniqueName="[0-1004]WebAddressBookTests.GroupModificationTests" Expanded="true" />
-    <Node UniqueName="[0-1008]WebAddressBookTests.GroupRemovalTests" Expanded="true" />
-    <Node UniqueName="[0-1010]WebAddressBookTests.LoginTests" Expanded="true" />
+    <Node UniqueName="[0-1021]WebAddressBookTests.ContactCreationTests.ContactCreationTest" Expanded="true" />
+    <Node UniqueName="[0-1004]WebAddressBookTests.ContactModificationTests" Expanded="true" />
+    <Node UniqueName="[0-1008]WebAddressBookTests.ContactRemovalTests" Expanded="true" />
+    <Node UniqueName="[0-1015]WebAddressBookTests.GroupCreationTests" Expanded="true" />
+    <Node UniqueName="[0-1016]WebAddressBookTests.GroupCreationTests.GroupCreationTest" Expanded="true" />
+    <Node UniqueName="[0-1006]WebAddressBookTests.GroupModificationTests" Expanded="true" />
+    <Node UniqueName="[0-1010]WebAddressBookTests.GroupRemovalTests" Expanded="true" />
+    <Node UniqueName="[0-1012]WebAddressBookTests.LoginTests" Expanded="true" />
   </Nodes>
 </VisualState>

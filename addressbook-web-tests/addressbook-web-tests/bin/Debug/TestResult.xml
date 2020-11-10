@@ -1,31 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll" total="5" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2020-11-10" time="14:21:03">
+<test-results name="C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll" total="13" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2020-11-11" time="00:17:35">
   <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.9151" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="D:\Program Files (x86)\NUnit-2.6.4\bin" machine-name="DESKTOP-MCVHNML" user="Me" user-domain="DESKTOP-MCVHNML" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll" executed="True" result="Failure" success="False" time="10.126" asserts="0">
+  <test-suite type="Assembly" name="C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\bin\Debug\addressbook-web-tests.dll" executed="True" result="Success" success="True" time="21.200" asserts="0">
     <results>
-      <test-suite type="Namespace" name="WebAddressBookTests" executed="True" result="Failure" success="False" time="10.118" asserts="0">
+      <test-suite type="Namespace" name="WebAddressBookTests" executed="True" result="Success" success="True" time="21.193" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="GroupCreationTests" executed="True" result="Failure" success="False" time="10.117" asserts="0">
+          <test-suite type="TestFixture" name="AddingContactToGroupTests" executed="True" result="Success" success="True" time="8.238" asserts="0">
             <results>
-              <test-suite type="ParameterizedTest" name="GroupCreationTest" executed="True" result="Failure" success="False" time="10.111" asserts="0">
+              <test-case name="WebAddressBookTests.AddingContactToGroupTests.AddingContactToGroup" executed="True" result="Success" success="True" time="8.229" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="ContactContentTests" executed="True" result="Success" success="True" time="0.941" asserts="0">
+            <results>
+              <test-case name="WebAddressBookTests.ContactContentTests.ContactMainPageContentTest" executed="True" result="Success" success="True" time="0.940" asserts="3" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="ContactCreationTests" executed="True" result="Success" success="True" time="2.458" asserts="0">
+            <results>
+              <test-suite type="ParameterizedTest" name="ContactCreationTest" executed="True" result="Success" success="True" time="2.457" asserts="0">
                 <results>
-                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = {ÂÍ¦.ìÀ´´?Tðz[¯&#xA;header = }Ç]ªýS£¼ð=rüb1_ÜçÕ&#xA;footer =  5ÉÈ]ß$ñ|)" executed="True" result="Success" success="True" time="6.468" asserts="2" />
-                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = RPºéÕ&#xA;header = sO£1·8ÜD±sNygG|ÊàUõÃ¸ÿÀEÊl¨GÙ'8.kæ12±»rs)þÙèºô}ÆâëìËTü×[A.6ëjÎ£'&#xA;footer = ¬·Eð5¸?2°£p¡­EåK¾ÜÌÞË|¢pFõ)" executed="True" result="Failure" success="False" time="0.846" asserts="1">
-                    <failure>
-                      <message><![CDATA[  Expected: 7
-  But was:  6
-]]></message>
-                      <stack-trace><![CDATA[at WebAddressBookTests.GroupCreationTests.GroupCreationTest(GroupData group) in C:\git\csharp4toasters\addressbook-web-tests\addressbook-web-tests\Tests\GroupCreationTests.cs:line 34
-]]></stack-trace>
-                    </failure>
-                  </test-case>
-                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = ¿PâKÆúh?d¹½1^Õ©½khËÏêgE&#xA;header = ¸7Îê§Éã?¾ÍI,zàw0nbvçdXx4`ÕlMê6Å¥ñÖÚ)@_ìéxÚøã¤ÐÑTnoNºªCnsR¥MöÜù¨¼1=9\ºñÇµ{µKÆ9VL&#xA;footer = º,í¹¿óápG@¿iÂRVñ&quot;Aï½æïÑa±S0¢NåÐÖ0K¢Ê¦?£7Ê¦õ2òù¥86\ùÓªÉí²é­_¤ñÙ)" executed="True" result="Success" success="True" time="0.892" asserts="2" />
-                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = A+oWÏ;Ï¶ãù¿n·Â8¨Ö#ÇØÛóU&#xA;header = ÖF´&lt;&amp;ØVàß$óÏOdRêÔ:ÙQÀé»cz¥EøNÝEhÞ]T©&lt;öþG)­¯#*&quot;,ÚêÙ&lt;=B¿õñ¹,qñ*ûs­¡^4ÉêJ&lt;Ìõ;ötòkK&#xA;footer = &lt;C¥J]ò/Ö7£³®|Ö/Qò&amp;R¸ÿz5ýüý¾Ð±.m·é÷;evIcè¾è×&lt;\ùÏ6a¦Ï¾Ý1Ø9äáýêrOäì)" executed="True" result="Success" success="True" time="0.926" asserts="2" />
-                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = Y×¿Ü¼ß5FáÖá{Ì&#xA;header = 2:Î:*\dêÔC¹òP¹À÷vúè^Þ_ú³W+&lt;¥lÒÒÓ?ÍS K\¦+{{S±È7é%hçIÛïÚ/Ù%áuÍfm@}å ICãÏ¬·Óâ ¥¹ôR&#xA;footer = ©öãd¿yiæØÄÞ.3TâÀá9D&lt;÷)" executed="True" result="Success" success="True" time="0.861" asserts="2" />
+                  <test-case name="WebAddressBookTests.ContactCreationTests.ContactCreationTest(first name = ;XP&#xA;last name = IB)" executed="True" result="Success" success="True" time="1.229" asserts="2" />
+                  <test-case name="WebAddressBookTests.ContactCreationTests.ContactCreationTest(first name = M2ALG,&#xA;last name = R.)" executed="True" result="Success" success="True" time="1.224" asserts="2" />
                 </results>
               </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="ContactModificationTests" executed="True" result="Success" success="True" time="1.731" asserts="0">
+            <results>
+              <test-case name="WebAddressBookTests.ContactModificationTests.ContactModificationTest" executed="True" result="Success" success="True" time="1.730" asserts="2" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="ContactRemovalTests" executed="True" result="Success" success="True" time="2.244" asserts="0">
+            <results>
+              <test-case name="WebAddressBookTests.ContactRemovalTests.ContactRemovalTest" executed="True" result="Success" success="True" time="2.243" asserts="2" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="GroupCreationTests" executed="True" result="Success" success="True" time="1.972" asserts="0">
+            <results>
+              <test-suite type="ParameterizedTest" name="GroupCreationTest" executed="True" result="Success" success="True" time="1.750" asserts="0">
+                <results>
+                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = Y&#xA;header = F4&#xA;footer = 6)" executed="True" result="Success" success="True" time="0.875" asserts="3" />
+                  <test-case name="WebAddressBookTests.GroupCreationTests.GroupCreationTest(name = 7W;&#xA;header = WVE2.&#xA;footer = [B))" executed="True" result="Success" success="True" time="0.871" asserts="3" />
+                </results>
+              </test-suite>
+              <test-case name="WebAddressBookTests.GroupCreationTests.TestDBConnectivity" executed="True" result="Success" success="True" time="0.217" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="GroupModificationTests" executed="True" result="Success" success="True" time="1.259" asserts="0">
+            <results>
+              <test-case name="WebAddressBookTests.GroupModificationTests.GroupModificationTest" executed="True" result="Success" success="True" time="1.258" asserts="4" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="GroupRemovalTests" executed="True" result="Success" success="True" time="1.119" asserts="0">
+            <results>
+              <test-case name="WebAddressBookTests.GroupRemovalTests.GroupRemovalTest" executed="True" result="Success" success="True" time="1.119" asserts="10" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="LoginTests" executed="True" result="Success" success="True" time="1.194" asserts="0">
+            <results>
+              <test-case name="WebAddressBookTests.LoginTests.LoginWithInvalidCredentialsTest" executed="True" result="Success" success="True" time="0.700" asserts="1" />
+              <test-case name="WebAddressBookTests.LoginTests.LoginWithValidCredentialsTest" executed="True" result="Success" success="True" time="0.489" asserts="1" />
             </results>
           </test-suite>
         </results>

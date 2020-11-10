@@ -1,15 +1,25 @@
-﻿using System;
+﻿using LinqToDB.Mapping;
+using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace WebAddressBookTests
 {
+    [Table(Name = "addressbook")]
     public class ContactData : IEquatable<ContactData>, IComparable<ContactData>
     {
         private string allPhones;
         private string allEmails;
 
+        [Column(Name = "id"), PrimaryKey]
+        public string Id { get; set; }
+
+        [Column(Name = "firstname")]
         public string FirstName { get; set; }
         public string MiddleName { get; set; } = "";
+
+        [Column(Name = "lastname")]
         public string LastName { get; set; }
         public string Nickname { get; set; } = "";
         public string Photo { get; set; } = "";
@@ -60,6 +70,9 @@ namespace WebAddressBookTests
             }
         }
 
+        [Column(Name = "deprecated")]
+        public string Deprecated { get; set; }
+
         public ContactData()
         {
         }
@@ -95,6 +108,14 @@ namespace WebAddressBookTests
                 return FirstName.CompareTo(other.FirstName);
 
             else return LastName.CompareTo(other.LastName);
+        }
+
+        public static List<ContactData> GetContactsListFromDb()
+        {
+            using (AddressbookDB database = new AddressbookDB())
+            {
+                return (from c in database.Contacts.Where(x => x.Deprecated == "0000-00-00 00:00:00") select c).ToList();
+            }
         }
 
         private string PhoneFormat(string phone)

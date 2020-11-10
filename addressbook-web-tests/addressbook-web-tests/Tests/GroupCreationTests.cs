@@ -1,14 +1,14 @@
-﻿using Excel = Microsoft.Office.Interop.Excel;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using System;
 
 namespace WebAddressBookTests
 {
     [TestFixture]
-    public class GroupCreationTests : AuthenticationTestBase
+    public class GroupCreationTests : GroupTestBase
     {
         public static IEnumerable<GroupData> RandomGroupDataProvider()
         {
@@ -38,11 +38,11 @@ namespace WebAddressBookTests
         [Test, TestCaseSource("GroupDataFromXml")]
         public void GroupCreationTest(GroupData group)
         {
-            List<GroupData> initialGroupsList = applicationManager.GroupHelper.GetGroupsList();
+            List<GroupData> initialGroupsList = GroupData.GetGroupsListFromDb();
 
             applicationManager.GroupHelper.Create(group);
 
-            List<GroupData> modifiedGroupsList = applicationManager.GroupHelper.GetGroupsList();
+            List<GroupData> modifiedGroupsList = GroupData.GetGroupsListFromDb();
 
             Assert.AreEqual(initialGroupsList.Count + 1, applicationManager.GroupHelper.GetGroupsCount());
 
@@ -51,6 +51,13 @@ namespace WebAddressBookTests
             modifiedGroupsList.Sort();
 
             Assert.AreEqual(initialGroupsList, modifiedGroupsList);
+        }
+
+        [Test]
+        public void TestDBConnectivity()
+        {
+            foreach (ContactData contact in GroupData.GetGroupsListFromDb()[0].GetContacts())
+                Console.Out.WriteLine(contact);
         }
     }
 }

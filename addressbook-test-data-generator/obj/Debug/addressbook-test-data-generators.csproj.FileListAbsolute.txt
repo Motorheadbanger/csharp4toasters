@@ -25,3 +25,9 @@ C:\git\csharp4toasters\addressbook-test-data-generator\obj\Debug\addressbook-tes
 C:\git\csharp4toasters\addressbook-test-data-generator\obj\Debug\addressbook-test-data-generator.pdb
 C:\git\csharp4toasters\addressbook-test-data-generator\bin\Debug\contacts.xml
 C:\git\csharp4toasters\addressbook-test-data-generator\bin\Debug\contacts.json
+C:\git\csharp4toasters\addressbook-test-data-generator\bin\Debug\linq2db.dll
+C:\git\csharp4toasters\addressbook-test-data-generator\bin\Debug\addressbook-web-tests.dll.config
+C:\git\csharp4toasters\addressbook-test-data-generator\bin\Debug\linq2db.pdb
+C:\git\csharp4toasters\addressbook-test-data-generator\bin\Debug\linq2db.xml
+C:\git\csharp4toasters\addressbook-test-data-generator\bin\Debug\WebDriver.Support.dll
+C:\git\csharp4toasters\addressbook-test-data-generator\bin\Debug\WebDriver.Support.xml
